@@ -14,9 +14,13 @@ const ContainerCard = styled(Pressable).attrs(() => ({
 }))`
   ${() => css`
     display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #008C95;
     padding: 24px;
     margin: 8px;
+    min-height: 105px;
+    min-width: 164px;
     border-radius: 8px;
   `}
 `;
