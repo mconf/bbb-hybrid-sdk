@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 const Container = styled.View `
-    background-color: purple;
     flex-direction: column;
     height: 100%;
     display: flex;
