@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Styled from './styles'
 import { View, Text } from 'react-native';
 
@@ -28,13 +29,19 @@ const _tempPollObject = {
 }
 
 const PollScreen = () => {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handlePress = (option) => {
+    setSelectedOption(option);
+  }
   
   return (
     <Styled.PollView>
+      <Styled.styledPollTitle>{_tempPollObject.title}</Styled.styledPollTitle>
       {_tempPollObject.options.map((option) => {
         return (
-          <Styled.ButtonInnerContainer>
-            <Styled.StyledPressableText>{option.title}</Styled.StyledPressableText>
+          <Styled.ButtonInnerContainer key={option.id} onPress={() => handlePress(option.id)} checked={selectedOption === option.id}>
+            <Styled.StyledPressableText checked={selectedOption === option.id}>{option.title}</Styled.StyledPressableText>
           </Styled.ButtonInnerContainer>
         )
       })}
