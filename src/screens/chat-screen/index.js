@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Image } from 'react-native';
 import S from './styles';
+import IconButtonComponent from '../../components/IconButton';
 import {
   SafeAreaView,
   KeyboardAvoidingView,
@@ -22,6 +23,7 @@ const ChatScreen = () => {
   ]);
   const [messageText, setMessageText] = useState('');
   const scrollViewRef = useRef();
+  //const svgIcon = icons['send.svg'];
 
   const handleMessageSend = () => {
     if (messageText.trim() === '') {
@@ -53,39 +55,38 @@ const ChatScreen = () => {
           {messages.map((message) => (
             <View key={message.id}>
               {message.sender === 'user' ? (
-                <View>
+                <S.UserWrapper isUser={true}>
                   <View>
-                    <S.ChatSender>{message.sender}</S.ChatSender>
                     <S.ChatBubble isUser={true}>
+                      <S.ChatSender>{message.sender}</S.ChatSender>
                       <S.ChatMessage isUser={true}>{message.text}</S.ChatMessage>
                     </S.ChatBubble>
                   </View>
-                </View>
+                    <S.UserImage source={{ uri: 'https://randomuser.me/api/portraits/men/1.jpg' }}/>
+                </S.UserWrapper>
               ) : (
-                <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 10 }}>
+                <S.UserWrapper>
                   <S.UserImage source={{ uri: 'https://randomuser.me/api/portraits/men/1.jpg' }}/>
                   <View>
-                    <S.ChatSender>{message.sender}</S.ChatSender>
                     <S.ChatBubble isUser={false}>
+                      <S.ChatSender>{message.sender}</S.ChatSender>
                       <S.ChatMessage>{message.text}</S.ChatMessage>
                     </S.ChatBubble>
                   </View>
-                </View>
+                </S.UserWrapper>
               )}
             </View>
           ))}
         </ScrollView>
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <TextInput
-            style={{ flex: 1, height: 40, borderWidth: 1, borderColor: 'gray', margin: 10 }}
-            placeholder="Type a message"
+        <S.ChatInputWrapper>
+          <S.ChatInput
+            placeholder="Envie sua mensagem"
+            placeholderTextColor="#FFF"
             onChangeText={(text) => setMessageText(text)}
             value={messageText}
           />
-          <TouchableOpacity onPress={handleMessageSend} style={{ margin: 10 }}>
-            <Text>Send</Text>
-          </TouchableOpacity>
-        </View>
+          <IconButtonComponent icon={'send'} onPress={handleMessageSend} iconColor={'red'} containerColor={'red'} />
+        </S.ChatInputWrapper>
       </KeyboardAvoidingView>
     </S.ChatAreaView>
   );
