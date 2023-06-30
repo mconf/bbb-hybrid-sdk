@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import S from './styles';
-import {Alert, Modal, StyleSheet, Text, Pressable, View, Image} from 'react-native';
+import {Alert, Modal, Text, View, Image} from 'react-native';
+import { Avatar } from 'react-native-paper';
 
 const SessionQRModal = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -9,8 +10,8 @@ const SessionQRModal = (props) => {
     <S.OpenModalButtonContainer>
       <S.OpenModalButton
         onPress={() => setModalVisible(true)}>
-        {/*Add QR code icon later*/}
         <Text style={{fontSize: 12, fontWeight: 600}}>QR CODE</Text>
+        <Avatar.Icon size={30} color='#008C95' icon="qrcode" style={{backgroundColor: 'white'}} />
       </S.OpenModalButton>
     </S.OpenModalButtonContainer>
       <Modal

@@ -39,12 +39,17 @@ const OpenModalButton = styled.Pressable`
     background: #FFFFFF;
     border-radius: 29.5px;
     padding: 12px 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 
 `;
 
 const OpenModalButtonContainer = styled.View`
     margin: 16px 16px 0 auto;
-
+    max-width: 115px;
+    width: 100%;
 `;
 
 export default {
