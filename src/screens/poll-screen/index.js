@@ -2,27 +2,15 @@ import React, { useState } from 'react';
 import Styled from './styles';
 
 const _tempPollObject = {
-  title: 'Enquete 1',
+  title: 'What is better: to be born good or to overcome your evil nature through great effort?',
   options: [
     {
-      title: 'Opção 1',
+      title: 'Born good',
       id: 1,
     },
     {
-      title: 'Opção 2',
+      title: 'Overcome your evil nature through great effort',
       id: 2,
-    },
-    {
-      title: 'Opção 3',
-      id: 3,
-    },
-    {
-      title: 'Opção 4',
-      id: 4,
-    },
-    {
-      title: 'Opção 5',
-      id: 5,
     }
   ]
 };
