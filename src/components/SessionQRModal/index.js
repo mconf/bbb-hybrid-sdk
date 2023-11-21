@@ -5,9 +5,9 @@ import {
 import { Avatar } from 'react-native-paper';
 import S from './styles';
 
-const SessionQRModal = (props) => {
+const SessionQRModal = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const { title } = props;
+
   return (
     <View>
       <S.OpenModalButtonContainer>
@@ -36,9 +36,7 @@ const SessionQRModal = (props) => {
             </S.CloseButtonContainer>
             <S.ModalTitleContainer>
               <S.ModalTitle>
-                Acesse
-                {' '}
-                {title}
+                Share
               </S.ModalTitle>
             </S.ModalTitleContainer>
             <S.ImageContainer>
