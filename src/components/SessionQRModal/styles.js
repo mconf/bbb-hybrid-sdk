@@ -4,6 +4,7 @@ const ModalContainer = styled.View`
   margin: 150px auto auto auto;
   background-color: white;
   border-radius: 12px;
+  padding: 0 24px 24px 24px;
 `;
 
 const CloseButtonContainer = styled.View`
@@ -19,9 +20,8 @@ const CloseButton = styled.Pressable`
 `;
 
 const ImageContainer = styled.View`
-  margin-bottom: 32px;
-  margin-left: 66px;
-  margin-right: 66px;
+  display: flex;
+  align-items: center;
 `;
 
 const ModalTitleContainer = styled.View`
