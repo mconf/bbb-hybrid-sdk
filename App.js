@@ -11,9 +11,27 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="[Título da conferência]" component={HomeScreen} />
-        <Stack.Screen name="PollScreen" component={PollScreen} />
-        <Stack.Screen name="ChatScreen" component={ChatScreen} />
+        <Stack.Screen
+          name="MainScreen"
+          component={HomeScreen}
+          options={{
+            title: 'My conference'
+          }}
+        />
+        <Stack.Screen
+          name="PollScreen"
+          component={PollScreen}
+          options={{
+            title: 'Poll'
+          }}
+        />
+        <Stack.Screen
+          name="ChatScreen"
+          component={ChatScreen}
+          options={{
+            title: 'Chat'
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
