@@ -1,12 +1,15 @@
-import React from 'react';
 import styled from 'styled-components/native';
 
-const Container = styled.View `
+const HomeScreenContainer = styled.View `
+    background-color: #06172A;
+`;
+
+const OptionContainer = styled.View `
     flex-direction: column;
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-top: 120px;
 `;
 const LineContainer = styled.View `
     width: 100%;
@@ -17,6 +20,7 @@ const LineContainer = styled.View `
 `;
 
 export default {
-    Container,
-    LineContainer
+    OptionContainer,
+    LineContainer,
+    HomeScreenContainer
 };
