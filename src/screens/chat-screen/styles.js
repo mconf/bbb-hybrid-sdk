@@ -1,6 +1,6 @@
-import { SafeAreaView } from "react-native-safe-area-context";
-import { TextInput } from "react-native";
-import styled from "styled-components/native";
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { TextInput } from 'react-native';
+import styled from 'styled-components/native';
 
 const ChatAreaView = styled(SafeAreaView)`
     flex: 1;
@@ -77,13 +77,13 @@ export const ChatSendButton = styled.TouchableOpacity`
 `;
 
 export default {
-    ChatAreaView,
-    ChatBubble,
-    ChatMessage,
-    ChatSender,
-    UserImage,
-    UserWrapper,
-    ChatInput,
-    ChatInputWrapper,
-    ChatSendButton
+  ChatAreaView,
+  ChatBubble,
+  ChatMessage,
+  ChatSender,
+  UserImage,
+  UserWrapper,
+  ChatInput,
+  ChatInputWrapper,
+  ChatSendButton
 };

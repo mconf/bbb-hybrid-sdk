@@ -1,8 +1,7 @@
-import Pressable from "../../components/pressable";
 import styled from 'styled-components/native';
-import { View } from "react-native";
-import { Text } from "react-native";
-import {css} from 'styled-components';
+import { View, Text } from 'react-native';
+import { css } from 'styled-components';
+import Pressable from '../../components/pressable';
 
 const ButtonInnerContainer = styled(Pressable).attrs(({ checked }) => ({
   justifyContent: 'center',
@@ -17,7 +16,7 @@ const ButtonInnerContainer = styled(Pressable).attrs(({ checked }) => ({
 }))``;
 
 const StyledPressableText = styled(Text)`
-  color: ${props => props.checked ? 'white' : 'black'};
+  color: ${(props) => (props.checked ? 'white' : 'black')};
   font-size: 21px;
   font-weight: medium;
   text-align: center;
@@ -31,7 +30,7 @@ const PollView = styled(View)`
     `}
 `;
 
-const styledPollTitle = styled(Text)`
+const PollTitle = styled(Text)`
     color: white;
     font-size: 16px;
     margin-bottom: 16px;
@@ -41,8 +40,8 @@ const styledPollTitle = styled(Text)`
 `;
 
 export default {
-    ButtonInnerContainer,
-    StyledPressableText,
-    PollView,
-    styledPollTitle,
+  ButtonInnerContainer,
+  StyledPressableText,
+  PollView,
+  PollTitle,
 };

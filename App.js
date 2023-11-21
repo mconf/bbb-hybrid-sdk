@@ -13,7 +13,7 @@ const App = () => {
       <Stack.Navigator>
         <Stack.Screen name="[Título da conferência]" component={HomeScreen} />
         <Stack.Screen name="PollScreen" component={PollScreen} />
-        <Stack.Screen name='ChatScreen' component={ChatScreen} />
+        <Stack.Screen name="ChatScreen" component={ChatScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

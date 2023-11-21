@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Styled from './styles'
+import Styled from './styles';
 
 const _tempPollObject = {
   title: 'Enquete 1',
@@ -25,24 +25,34 @@ const _tempPollObject = {
       id: 5,
     }
   ]
-}
+};
 
 const PollScreen = () => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handlePress = (option) => {
     setSelectedOption(option);
-  }
-  
+  };
+
   return (
     <Styled.PollView>
-      <Styled.styledPollTitle>{_tempPollObject.title}</Styled.styledPollTitle>
+      <Styled.PollTitle>
+        {_tempPollObject.title}
+      </Styled.PollTitle>
       {_tempPollObject.options.map((option) => {
         return (
-          <Styled.ButtonInnerContainer key={option.id} onPress={() => handlePress(option.id)} checked={selectedOption === option.id}>
-            <Styled.StyledPressableText checked={selectedOption === option.id}>{option.title}</Styled.StyledPressableText>
+          <Styled.ButtonInnerContainer
+            key={option.id}
+            onPress={() => handlePress(option.id)}
+            checked={selectedOption === option.id}
+          >
+            <Styled.StyledPressableText
+              checked={selectedOption === option.id}
+            >
+              {option.title}
+            </Styled.StyledPressableText>
           </Styled.ButtonInnerContainer>
-        )
+        );
       })}
     </Styled.PollView>
   );
