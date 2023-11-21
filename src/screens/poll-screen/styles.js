@@ -4,27 +4,23 @@ import { View } from "react-native";
 import { Text } from "react-native";
 import {css} from 'styled-components';
 
-const ButtonInnerContainer = styled(Pressable).attrs(() => ({
-    pressStyle: {
-      opacity: 0.8,
-    },
-  }))`
-    ${() => css`
-      justify-content: center;
-      display: flex;
-      border-radius: 4px;
-      min-height: 40px;
-      background-color: white;
-    `}
-`;
+const ButtonInnerContainer = styled(Pressable).attrs(({ checked }) => ({
+  justifyContent: 'center',
+  display: 'flex',
+  borderRadius: 4,
+  height: 40,
+  marginBottom: 16,
+  backgroundColor: checked ? '#008C95' : 'white',
+  pressStyle: {
+    opacity: 0.8,
+  }
+}))``;
 
 const StyledPressableText = styled(Text)`
-    ${() => css`
-        color: #28282D;
-        font-size: 21px;
-        font-weight: medium;
-        text-align: center;
-    `}
+  color: ${props => props.checked ? 'white' : 'black'};
+  font-size: 21px;
+  font-weight: medium;
+  text-align: center;
 `;
 
 const PollView = styled(View)`
@@ -35,8 +31,18 @@ const PollView = styled(View)`
     `}
 `;
 
+const styledPollTitle = styled(Text)`
+    color: white;
+    font-size: 16px;
+    margin-bottom: 16px;
+    margin-top: 24px;
+    text-align: center;
+    font-weight: bold;
+`;
+
 export default {
     ButtonInnerContainer,
     StyledPressableText,
-    PollView
+    PollView,
+    styledPollTitle,
 };
