@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Styled from './styles'
-import { View, Text } from 'react-native';
 
 const _tempPollObject = {
   title: 'Enquete 1',

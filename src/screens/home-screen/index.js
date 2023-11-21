@@ -26,7 +26,7 @@ const HomeScreen = () => {
           <Card
             title="Chat"
             icon="poll"
-            onPress={() => navigation.navigate('PollScreen')}
+            onPress={() => navigation.navigate('ChatScreen')}
           />
           <Card
             title="Apresentacao"
