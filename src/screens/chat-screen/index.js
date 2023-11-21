@@ -1,15 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Image } from 'react-native';
 import S from './styles';
 import IconButtonComponent from '../../components/IconButton';
 import {
-  SafeAreaView,
   KeyboardAvoidingView,
   ScrollView,
-  TextInput,
-  TouchableOpacity,
   View,
-  Text,
 } from 'react-native';
 
 const ChatScreen = () => {
@@ -17,6 +12,18 @@ const ChatScreen = () => {
     {
       id: 1,
       text: "Hello, how are you?",
+      sender: "John",
+      timestamp: new Date(),
+    },
+    {
+      id: 2,
+      text: "I've some news to tell you",
+      sender: "John",
+      timestamp: new Date(),
+    },
+    {
+      id: 3,
+      text: "I just arrived Japan!",
       sender: "John",
       timestamp: new Date(),
     }
@@ -47,7 +54,7 @@ const ChatScreen = () => {
 
   return (
     <S.ChatAreaView style={{ flex: 1 }}>
-      <KeyboardAvoidingView style={{ flex: 1 }} behavior="padding">
+      
         <ScrollView style={{ flex: 1 }}
           ref={scrollViewRef}
           contentContainerStyle={{ flexGrow: 1, justifyContent: 'flex-end' }}
@@ -85,9 +92,8 @@ const ChatScreen = () => {
             onChangeText={(text) => setMessageText(text)}
             value={messageText}
           />
-          <IconButtonComponent icon={'send'} onPress={handleMessageSend} iconColor={'red'} containerColor={'red'} />
+          <IconButtonComponent icon={'send'} size={38} onPress={handleMessageSend} iconColor={'#FFFF'} containerColor={'#008C95'} />
         </S.ChatInputWrapper>
-      </KeyboardAvoidingView>
     </S.ChatAreaView>
   );
 };

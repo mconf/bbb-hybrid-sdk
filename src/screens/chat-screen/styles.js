@@ -1,11 +1,6 @@
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native";
-import { View } from "react-native";
-import { Text } from "react-native";
-import { Image } from "react-native";
 import { TextInput } from "react-native";
 import styled from "styled-components/native";
-import { TouchableOpacity } from "react-native";
 
 const ChatAreaView = styled(SafeAreaView)`
     flex: 1;
@@ -47,6 +42,7 @@ export const UserWrapper = styled.View`
     flex-direction: row;
     align-self: ${({ isUser }) => (isUser ? 'flex-end' : 'flex-start')};
     align-items: flex-start;
+    margin-top: 16px;
 `;
 
 export const ChatInput = styled(TextInput)`
@@ -68,7 +64,7 @@ export const ChatInputWrapper = styled.View`
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  margin: 32px 0;
+  margin-top: 32px;
 `;
 
 export const ChatSendButton = styled.TouchableOpacity`

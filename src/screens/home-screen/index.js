@@ -12,25 +12,25 @@ const HomeScreen = () => {
       <S.OptionContainer>
         <S.LineContainer>
           <Card
-            title="Enquetes"
             icon="poll"
+            title="Enquetes"
             onPress={() => navigation.navigate('PollScreen')}
           />
           <Card
             title="Perguntas"
-            icon="poll"
+            icon="help"
             onPress={() => navigation.navigate('PollScreen')}
           />
         </S.LineContainer>
         <S.LineContainer>
           <Card
             title="Chat"
-            icon="poll"
+            icon="forum"
             onPress={() => navigation.navigate('ChatScreen')}
           />
           <Card
             title="Apresentacao"
-            icon="poll"
+            icon="application-outline"
             onPress={() => navigation.navigate('PollScreen')}
           />
         </S.LineContainer>
