@@ -1,14 +1,14 @@
-import S from './styles'
 import { useNavigation } from '@react-navigation/native';
+import S from './styles';
 import SessionQRModal from '../../components/SessionQRModal';
 import Card from '../../components/card';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
-  
+
   return (
     <S.HomeScreenContainer>
-      <SessionQRModal title={'[Título da Videoconferência]'} />
+      <SessionQRModal title="[Título da Videoconferência]" />
       <S.OptionContainer>
         <S.LineContainer>
           <Card

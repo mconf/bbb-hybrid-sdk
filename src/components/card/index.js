@@ -1,17 +1,15 @@
-import Styled from './styles';
 import { Avatar } from 'react-native-paper';
+import Styled from './styles';
 
 const Card = (props) => {
   const { title, onPress, icon } = props;
-
-  console.log('Card', props);
 
   return (
     <Styled.ContainerCard onPress={onPress}>
       <Avatar.Icon
         icon={icon}
         size={32}
-        color={'#FFFFFF'}
+        color="#FFFFFF"
         style={{ backgroundColor: '#008C95' }}
       />
       <Styled.Title>{title}</Styled.Title>
