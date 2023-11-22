@@ -41,7 +41,7 @@ const useJoinMeeting = () => {
   }
 
   async function callApiEnter() {
-    fetch(`https://${host}/bigbluebutton/api/enter/?sessionToken=${sessionToken}`)
+    fetch(`https://${host}/bigbluebutton/api/enter/?sessionToken=${sessionToken}`, { credentials: 'include' })
       .then((response) => response.json())
       .then((data) => {
         setEnterApiResponse(data.response.returncode);
@@ -57,6 +57,7 @@ const useJoinMeeting = () => {
 
   async function connectGraphqlServer() {
     if (enterApiResponse !== 'SUCCESS') {
+      console.log('Error enterApiResponse');
       return;
     }
 
@@ -92,6 +93,9 @@ const useJoinMeeting = () => {
         break;
       case 3:
         connectGraphqlServer();
+        break;
+      case 4:
+        console.log('login complete');
         break;
       default:
         console.log('error');
