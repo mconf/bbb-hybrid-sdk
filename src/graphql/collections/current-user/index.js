@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { gql, useMutation, useSubscription } from '@apollo/client';
+import { useNavigation } from '@react-navigation/native';
 
 const CurrentUser = ({ userAuthToken }) => {
-  console.log(userAuthToken);
+  const navigation = useNavigation();
   // where is not necessary once user can update only its own status
   // Hasura accepts "now()" as value to timestamp fields
   const [updateUserClientEchoTestRunningAtMeAsNow] = useMutation(gql`
@@ -61,7 +62,6 @@ const CurrentUser = ({ userAuthToken }) => {
         </View>
         <View>
           {data.user_current.map((curr) => {
-            console.log('user_current', curr);
             return (
               <View key={curr.userId} style={{ flexDirection: 'column' }}>
                 <Text>
@@ -89,6 +89,9 @@ const CurrentUser = ({ userAuthToken }) => {
                   joinErrorMessage:
                   {curr.joinErrorMessage}
                 </Text>
+                <TouchableOpacity onPress={() => navigation.navigate('MeetingInfo')}>
+                  <Text>Acs meeting info page</Text>
+                </TouchableOpacity>
               </View>
             );
           })}

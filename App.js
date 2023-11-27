@@ -33,6 +33,13 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
+            name="MainScreen"
+            component={HomeScreen}
+            options={{
+              title: 'My conference'
+            }}
+          />
+          <Stack.Screen
             name="CurrentUser"
             options={{
               title: 'CurrentUser'
@@ -48,13 +55,6 @@ const App = () => {
           >
             {() => <MeetingInfo />}
           </Stack.Screen>
-          <Stack.Screen
-            name="MainScreen"
-            component={HomeScreen}
-            options={{
-              title: 'My conference'
-            }}
-          />
           <Stack.Screen
             name="PollScreen"
             component={PollScreen}
