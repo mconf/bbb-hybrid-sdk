@@ -2,13 +2,13 @@ import { gql, useQuery } from '@apollo/client';
 import { View, Text } from 'react-native';
 
 const MeetingInfo = () => {
+  // duration
   const { loading, error, data } = useQuery(
     gql`query {
       meeting {
         meetingId
         createdTime
         disabledFeatures
-        duration
         extId
         html5InstanceId
         isBreakout
@@ -22,35 +22,48 @@ const MeetingInfo = () => {
     }`
   );
 
-  console.log("loading", loading);
-  console.log("error", error);
-  console.log("data", data);
-
-  if (loading || !error || !data) {
+  if (loading) {
     return (
       <Text> Loading...</Text>
     );
   }
 
-  return (
+  return !loading && !error
+  && (
     <View style={{ borderWidth: 1 }}>
-      <View style={{ flex: 1 }}>
+      <View>
         {data.meeting.map((curr) => {
           console.log('meeting', curr);
           return (
-            <View key={curr.meetingId} style={{ flexDirection: 'row' }}>
+            <View key={curr.meetingId}>
               {/* <Text>{user.userId}</Text> */}
               <Text>
-                Name
+                Name:
                 {curr.name}
               </Text>
               <Text>
-                extId
-                {curr.extId}
+                createdTime:
+                {curr.createdTime}
               </Text>
               <Text>
-                duration
-                {curr.duration}
+                isBreakout:
+                {curr.isBreakout}
+              </Text>
+              <Text>
+                maxPinnedCameras:
+                {curr.maxPinnedCameras}
+              </Text>
+              <Text>
+                meetingId:
+                {curr.meetingId}
+              </Text>
+              <Text>
+                notifyRecordingIsOn:
+                {curr.notifyRecordingIsOn}
+              </Text>
+              <Text>
+                notifyRecordingIsOn:
+                {curr.notifyRecordingIsOn}
               </Text>
             </View>
           );
