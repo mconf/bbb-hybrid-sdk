@@ -34,6 +34,18 @@ const HomeScreen = () => {
             onPress={() => navigation.navigate('PollScreen')}
           />
         </S.LineContainer>
+        <S.LineContainer>
+          <Card
+            title="CurrentUser"
+            icon="forum"
+            onPress={() => navigation.navigate('CurrentUser')}
+          />
+          <Card
+            title="MeetingInfo"
+            icon="application-outline"
+            onPress={() => navigation.navigate('MeetingInfo')}
+          />
+        </S.LineContainer>
       </S.OptionContainer>
     </S.HomeScreenContainer>
   );
