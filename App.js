@@ -6,6 +6,7 @@ import { ApolloProvider } from '@apollo/client';
 import HomeScreen from './src/screens/home-screen';
 import PollScreen from './src/screens/poll-screen';
 import ChatScreen from './src/screens/chat-screen';
+import ChatPublicMessages from './src/graphql/collections/chat-messages';
 import useJoinMeeting from './src/graphql/hooks/use-join-meeting';
 import CurrentUser from './src/graphql/collections/current-user';
 import MeetingInfo from './src/graphql/collections/meeting-info';
@@ -54,6 +55,14 @@ const App = () => {
             }}
           >
             {() => <MeetingInfo />}
+          </Stack.Screen>
+          <Stack.Screen
+            name="ChatPublicMessages"
+            options={{
+              title: 'ChatPublicMessages'
+            }}
+          >
+            {() => <ChatPublicMessages />}
           </Stack.Screen>
           <Stack.Screen
             name="PollScreen"
