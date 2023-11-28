@@ -95,7 +95,7 @@ const useJoinMeeting = () => {
         connectGraphqlServer();
         break;
       case 4:
-        console.log('login complete');
+        console.log('LOGIN COMPLETE');
         break;
       default:
         console.log('error');

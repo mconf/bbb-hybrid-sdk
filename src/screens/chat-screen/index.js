@@ -3,33 +3,14 @@ import {
   ScrollView,
   View,
 } from 'react-native';
+import useChatPublicMessages from '../../graphql/collections/chat-messages';
 import S from './styles';
 import IconButtonComponent from '../../components/IconButton';
 
 const ChatScreen = () => {
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      text: 'Hello, how are you?',
-      sender: 'John',
-      timestamp: new Date(),
-    },
-    {
-      id: 2,
-      text: "I've some news to tell you",
-      sender: 'John',
-      timestamp: new Date(),
-    },
-    {
-      id: 3,
-      text: 'I just arrived Japan!',
-      sender: 'John',
-      timestamp: new Date(),
-    }
-  ]);
+  const chatMessagesList = useChatPublicMessages();
   const [messageText, setMessageText] = useState('');
   const scrollViewRef = useRef();
-  // const svgIcon = icons['send.svg'];
 
   const handleMessageSend = () => {
     if (messageText.trim() === '') {
@@ -37,31 +18,28 @@ const ChatScreen = () => {
     }
 
     const newMessage = {
-      id: messages.length + 1,
+      id: chatMessagesList.length + 1,
       text: messageText.trim(),
       sender: 'user',
       timestamp: new Date(),
     };
-
-    setMessages([...messages, newMessage]);
     setMessageText('');
   };
 
   useEffect(() => {
     scrollViewRef.current.scrollToEnd({ animated: true });
-  }, [messages]);
+  }, [chatMessagesList.lenght]);
 
   return (
     <S.ChatAreaView style={{ flex: 1 }}>
-
       <ScrollView
         style={{ flex: 1 }}
         ref={scrollViewRef}
         contentContainerStyle={{ flexGrow: 1, justifyContent: 'flex-end' }}
         inverted
       >
-        {messages.map((message) => (
-          <View key={message.id}>
+        {chatMessagesList.map((message) => (
+          <View key={message.messageId}>
             {message.sender === 'user' ? (
               <S.UserWrapper isUser>
                 <View>
@@ -77,8 +55,8 @@ const ChatScreen = () => {
                 <S.UserImage source={{ uri: 'https://randomuser.me/api/portraits/men/1.jpg' }} />
                 <View>
                   <S.ChatBubble isUser={false}>
-                    <S.ChatSender>{message.sender}</S.ChatSender>
-                    <S.ChatMessage>{message.text}</S.ChatMessage>
+                    <S.ChatSender>{message.senderName}</S.ChatSender>
+                    <S.ChatMessage>{message.message}</S.ChatMessage>
                   </S.ChatBubble>
                 </View>
               </S.UserWrapper>
@@ -88,7 +66,7 @@ const ChatScreen = () => {
       </ScrollView>
       <S.ChatInputWrapper>
         <S.ChatInput
-          placeholder="Envie sua mensagem"
+          placeholder="Send your message"
           placeholderTextColor="#FFF"
           onChangeText={(text) => setMessageText(text)}
           value={messageText}
