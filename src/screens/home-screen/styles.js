@@ -9,7 +9,7 @@ const OptionContainer = styled.View`
     height: 100%;
     display: flex;
     align-items: center;
-    margin-top: 120px;
+    margin-top: 40px;
 `;
 const LineContainer = styled.View`
     width: 100%;
